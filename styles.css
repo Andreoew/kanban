@@ -173,7 +173,7 @@ section.kanban > * {
 section.kanban h2 {
   font-size: 2rem;
   color: #403937;
-  padding: 2.4rem 0;
+  padding: 2.4rem 0; 
 }
 
 .card {
@@ -183,7 +183,7 @@ section.kanban h2 {
   border-radius: .8rem;
 
   line-height: 130%;
-  width: 36.7rem;
+  /* width: 36.7rem; */
   /* cursor: move; */
   user-select: none;
 }
@@ -191,6 +191,7 @@ section.kanban h2 {
 .card h3 {
   font-size: 1.4rem;
   color: #403937;
+  
 }
 
 .status {
@@ -249,13 +250,27 @@ section.kanban h2 {
   min-height: 100px;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;    
+  gap: 2.4rem;
+  align-items: center;    
 }
 
 .cards {
   overflow-y: auto;
   max-height: calc(100vh - 400px);
   padding-bottom: 0;
+}
+
+.card p {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-height: 3.6rem; 
+  transition: max-height 0.5s ease;
+}
+
+.card p:hover {
+  white-space: wrap;  
+  max-height: 100%;
 }
 
 /* Esconde a barra de rolagem por padrão, incluindo o track */
@@ -287,19 +302,6 @@ section.kanban h2 {
   cursor: pointer;
 }
 
-.card p {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-height: 3.6rem; 
-  transition: max-height 0.5s ease;
-}
-
-.card p:hover {
-  white-space: wrap;  
-  max-height: 100%;
-}
-
 
 .is-dragging {
   cursor: move;
@@ -307,6 +309,25 @@ section.kanban h2 {
 }
 
 .over {
-  background-color: #4cd13711;
+  background-color: #163b1111;
+}
+
+@media (min-width: 1366px) {
+  section.kanban {
+    gap: .7rem;
+  }
+
+  section.kanban > * {    
+    padding: .1rem;
+  } 
+
+  section.kanban h2 {    
+    margin-left: 3.8rem;    
+  }
+
+  .card {
+    max-width: 35.7rem;
+  }
+  
 }
 
